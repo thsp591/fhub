@@ -1,28 +1,21 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("reservationForm");
 
-const form = document.getElementById("reservationForm");
+    if (form) {
+        form.addEventListener("submit", function() {
+            let firstName = document.getElementById("firstName").value;
+            let email = document.getElementById("email").value;
 
-if(form){
+            if(firstName === "" || email === ""){
+                alert("Please fill all required fields");
+                return false; // ndalon submit vetëm nëse fusha bosh
+            }
 
-form.addEventListener("submit", function(e){
+            // Shfaq mesazh suksesi (opsional, sepse user do të shohë email client)
+            document.getElementById("successMsg").innerText =
+            "Reservation form opened in your email client. Please click Send to complete the reservation.";
 
-e.preventDefault();
-
-let firstName = document.getElementById("firstName").value;
-let email = document.getElementById("email").value;
-
-if(firstName === "" || email === ""){
-alert("Please fill all required fields");
-return;
-}
-
-document.getElementById("successMsg").innerText =
-"Reservation submitted successfully! I will contact you soon.";
-
-form.reset();
-
-});
-
-}
-
+            // reset nuk bëhet automatik sepse forma nuk është dërguar realisht
+        });
+    }
 });
