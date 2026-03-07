@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>Reserve Service</title>
 <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
-
 </head>
 
 <body>
-
 <header>
 <nav>
-
 <h2>Gert Lula</h2>
-
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html">About Me</a></li>
@@ -22,60 +17,50 @@
 <li><a href="contact.html">Contact Me</a></li>
 <li><a href="reserve.html">Reserve a Service</a></li>
 </ul>
-
 </nav>
 </header>
 
 <div class="container">
-
 <h1>Reserve a Service</h1>
 
-<form id="reservationForm">
+<form id="reservationForm" action="mailto:tyemail@example.com" method="post" enctype="text/plain">
 
 <label>First Name</label>
-<input id="firstName" type="text" required>
+<input id="firstName" name="First Name" type="text" required>
 
 <label>Last Name</label>
-<input type="text" required>
+<input name="Last Name" type="text" required>
 
 <label>Email</label>
-<input id="email" type="email" required>
+<input id="email" name="Email" type="email" required>
 
 <label>Select Service</label>
-
-<select>
-
+<select name="Service">
 <option>Creations</option>
 <option>Editing</option>
 <option>Online Learning</option>
 <option>Technology Help</option>
-
 </select>
 
 <label>Project Description</label>
-<textarea></textarea>
+<textarea name="Project Description"></textarea>
 
 <label>Comments</label>
-<textarea></textarea>
+<textarea name="Comments"></textarea>
 
 <label>Work Type</label>
-
-<select>
-
+<select name="Work Type">
 <option>Virtual</option>
 <option>Physical (sent by post)</option>
-
 </select>
 
 <label>Address (if physical)</label>
-<input type="text">
+<input name="Address" type="text">
 
 <button type="submit">Submit Reservation</button>
 
 <div id="successMsg" class="success"></div>
-
 </form>
-
 </div>
 
 </body>
