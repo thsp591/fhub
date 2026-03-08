@@ -1,5 +1,5 @@
 (function(){
-emailjs.init("YOUR_PUBLIC_KEY");
+emailjs.init("OqP4nPUEKfgP5kOkL");
 })();
 
 const miniServices = {
@@ -78,7 +78,7 @@ mini_service:document.getElementById("miniService").value
 
 };
 
-emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",params)
+emailjs.send("service_h6sdfqi","template_1bd7x62",params)
 
 .then(function(){
 
