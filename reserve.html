@@ -1,41 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
-<title>Reservation</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Reserve a Service</title>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0b0f2a;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+form{
+background:#151c5a;
+padding:30px;
+border-radius:12px;
+width:350px;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border:none;
+border-radius:6px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#5b6cff;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#3d4cff;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<header>
-<nav>
+<form id="reservationForm">
 
-<h2>Gert Lula</h2>
+<h2>Reserve Service</h2>
 
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Me</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="contact.html">Contact Me</a></li>
-<li><a href="reserve.html">Reserve a Service</a></li>
-</ul>
+<label>First Name*</label>
+<input type="text" id="firstName" required>
 
-</nav>
-</header>
+<label>Last Name</label>
+<input type="text" id="lastName">
 
-<div class="container">
+<label>Email*</label>
+<input type="email" id="email" required>
 
-<h1>Reserve a service</h1>
+<label>Service*</label>
+<select id="service" required>
 
-<p>Use the form below to reserve a service:</p>
+<option value="">Select Service</option>
 
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfSktdstQ053My0qNsfgfc3S8SlfoU0Z-z27R5QOeXXWRdFiA/viewform?usp=dialog" target="_blank">
-Open Reservation Form
-</a>
+<option value="Creations">Creations</option>
+<option value="Editing">Editing</option>
+<option value="IT Help">IT Help</option>
+<option value="Online Lessons">Online Lessons</option>
 
-</div>
+</select>
+
+<label>Mini Service*</label>
+<select id="miniService" required>
+
+<option value="">Select mini service</option>
+
+</select>
+
+<button type="submit">Send Reservation</button>
+
+</form>
+
+<script>
+
+(function(){
+emailjs.init("OqP4nPUEKfgP5kOkL");
+})();
+
+const miniServices = {
+
+"Creations":[
+"Website",
+"App",
+"Presentation",
+"Game",
+"Roblox Game",
+"Business Card",
+"Word Document",
+"Excel Document"
+],
+
+"Editing":[
+"Website Edit",
+"App Edit",
+"Presentation Edit",
+"Game Edit",
+"Roblox Game Edit",
+"Business Card Edit",
+"Word Document Edit",
+"Excel Document Edit"
+],
+
+"IT Help":[
+"Website Help",
+"App Help",
+"Software Help",
+"Computer Help"
+],
+
+"Online Lessons":[
+"Programming Languages",
+"Python Lessons",
+"Design Lessons",
+"Ethical Hacking (Educational purposes only)"
+]
+
+};
+
+const serviceSelect=document.getElementById("service");
+const miniSelect=document.getElementById("miniService");
+
+serviceSelect.addEventListener("change",function(){
+
+const selected=this.value;
+
+miniSelect.innerHTML="<option>Select mini service</option>";
+
+miniServices[selected].forEach(function(service){
+
+let option=document.createElement("option");
+
+option.value=service;
+option.textContent=service;
+
+miniSelect.appendChild(option);
+
+});
+
+});
+
+document.getElementById("reservationForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let params={
+
+first_name:document.getElementById("firstName").value,
+last_name:document.getElementById("lastName").value,
+email:document.getElementById("email").value,
+service:document.getElementById("service").value,
+mini_service:document.getElementById("miniService").value
+
+};
+
+emailjs.send("service_h6sdfqi","template_1bd7x62",params)
+
+.then(function(){
+
+alert("Reservation sent successfully!");
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
