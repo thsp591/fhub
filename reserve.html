@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Reserve Service</title>
+
+<title>Reservation</title>
 <link rel="stylesheet" href="style.css">
-<script defer src="script.js"></script>
+
 </head>
 
 <body>
+
 <header>
 <nav>
+
 <h2>Gert Lula</h2>
+
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html">About Me</a></li>
@@ -17,50 +21,20 @@
 <li><a href="contact.html">Contact Me</a></li>
 <li><a href="reserve.html">Reserve a Service</a></li>
 </ul>
+
 </nav>
 </header>
 
 <div class="container">
-<h1>Reserve a Service</h1>
 
-<form id="reservationForm" action="mailto:thesmartprogrammer591@gmail.com" method="post" enctype="text/plain">
+<h1>Reserve a service</h1>
 
-<label>First Name</label>
-<input id="firstName" name="First Name" type="text" required>
+<p>Use the form below to reserve a service:</p>
 
-<label>Last Name</label>
-<input name="Last Name" type="text" required>
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfSktdstQ053My0qNsfgfc3S8SlfoU0Z-z27R5QOeXXWRdFiA/viewform?usp=dialog" target="_blank">
+Open Reservation Form
+</a>
 
-<label>Email</label>
-<input id="email" name="Email" type="email" required>
-
-<label>Select Service</label>
-<select name="Service">
-<option>Creations</option>
-<option>Editing</option>
-<option>Online Learning</option>
-<option>Technology Help</option>
-</select>
-
-<label>Project Description</label>
-<textarea name="Project Description"></textarea>
-
-<label>Comments</label>
-<textarea name="Comments"></textarea>
-
-<label>Work Type</label>
-<select name="Work Type">
-<option>Virtual</option>
-<option>Physical (sent by post)</option>
-</select>
-
-<label>Address (if physical)</label>
-<input name="Address" type="text">
-
-<button type="submit">Submit Reservation</button>
-
-<div id="successMsg" class="success"></div>
-</form>
 </div>
 
 </body>
